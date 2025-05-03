@@ -7,8 +7,9 @@
 body {
     font-family: Arial, sans-serif;
     overflow: hidden;
-    background: url('aset/langit.png') no-repeat center center fixed; /* Ganti dengan URL gambar latar belakang Anda */
+    background: url('aset/langit.png') no-repeat center center fixed;
     background-size: cover;
+    height: 100vh;
 }
 
 .container {
@@ -19,12 +20,14 @@ body {
 }
 
 .weather-prompt {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 25px;
     text-align: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     animation: fadeIn 1s ease-in-out;
+    max-width: 350px;
+    width: 90%;
 }
 
 @keyframes fadeIn {
@@ -33,21 +36,24 @@ body {
 }
 
 input[type="text"] {
-    padding: 10px;
-    margin: 10px 0;
+    padding: 12px;
+    margin: 12px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 80%;
+    width: 100%;
+    font-size: 1em;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
+    font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
 button:hover {
@@ -55,7 +61,92 @@ button:hover {
 }
 
 .result {
-    margin-top: 20px;
+    margin-top: 18px;
     font-size: 1.2em;
     color: #333;
-} 
+    min-height: 1.5em;
+}
+
+/* Loading modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 35px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    width: 280px;
+    max-width: 90vw;
+    user-select: none;
+}
+
+/* Loader animation (spinner) */
+.loader {
+    margin: 0 auto 20px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #4caf50;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+.loading-text {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    min-height: 1.5em;
+}
+
+/* Responsive adjustment for mobile */
+@media screen and (max-width: 400px) {
+    .modal-content {
+        width: 260px;
+        padding: 20px 25px;
+    }
+
+    .weather-prompt {
+        max-width: 300px;
+        padding: 18px 20px;
+    }
+
+    input[type="text"], button {
+        font-size: 0.9em;
+    }
+}
+
+.watermark {
+    position: fixed;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.6);
+    user-select: none;
+    pointer-events: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    z-index: 10000;
+}

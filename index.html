@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediksi Cuaca-by.zahwan</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prediksi Cuaca Lucu</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <div class="weather-prompt">
             <h1>Prediksi Cuaca</h1>
-            <input type="text" id="location" placeholder="Masukkan nama negara/kota">
+            <input type="text" id="location" placeholder="Masukkan lokasi..." autocomplete="off" />
             <button id="predict-btn">Prediksi!</button>
             <div id="result" class="result"></div>
         </div>
     </div>
+
+    <!-- Modal loading window -->
+    <div id="loading-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="loading-text">
+        <div class="modal-content">
+            <div class="loader" aria-hidden="true"></div>
+            <div id="loading-text" class="loading-text">Mencari...</div>
+        </div>
+    </div>
+    <footer class="watermark">Powered by zahwan AI</footer>
 </body>
 </html>
