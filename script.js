@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     predictBtn.addEventListener('click', () => {
         const location = locationInput.value.trim();
         if (!location) {
-            resultDiv.textContent = "Tolong masukkan lokasi!";
+            resultDiv.textContent = "Tolong masukkan negara/lokasi!";
             return;
         }
         resultDiv.textContent = "";
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const steps = [
             "Mencari...",
             "Menganalisis...",
-            "Membaca awan...",
+            "loading...",
             "Mengumpulkan data...",
             "Memproses hasil...",
             "Hampir selesai..."
